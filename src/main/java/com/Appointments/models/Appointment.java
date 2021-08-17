@@ -48,5 +48,16 @@ public class Appointment implements Serializable {
 	@JoinColumn(name="users_id", nullable=false)
 	private User user;
 
+	public Appointment(@NotEmpty @NotNull String date, @NotNull boolean passed, @NotEmpty @NotNull String description,
+			User user) {
+		super();
+		this.date = date;
+		this.passed = passed;
+		this.description = description;
+		this.user = user;
+	}
+	
+	
+
 
 }
