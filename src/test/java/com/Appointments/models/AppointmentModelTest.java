@@ -1,18 +1,16 @@
-package com.Appointments;
+package com.Appointments.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.Appointments.models.Appointment;
-
 public class AppointmentModelTest {
 	Appointment appointment;
 	
 	@BeforeEach
 	public void setup() {
-		this.appointment = new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone");
+		this.appointment = new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", new User());
 	}
 	
 	@Test

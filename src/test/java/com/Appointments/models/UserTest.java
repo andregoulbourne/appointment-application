@@ -1,18 +1,16 @@
-package com.Appointments;
+package com.Appointments.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.Appointments.exceptions.NotFoundException;
-import com.Appointments.models.Appointment;
-import com.Appointments.models.User;
 
 public class UserTest {
 
@@ -21,7 +19,7 @@ public class UserTest {
 	@BeforeEach
 	public void setup() {
 		List<Appointment> appointments = new ArrayList<>();
-		Appointment newAppointment = new Appointment(5, "08-09-2019", false, "My sister freaks out whenever someone takes her phone");
+		Appointment newAppointment = new Appointment(5, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		appointments.add(newAppointment);
 		this.user = new User(1, "patient", "password", "firstName", "lastName", "middleName", appointments,
 				"19735678888");
@@ -77,7 +75,7 @@ public class UserTest {
 	
 	@Test
 	public void testAddAppointmentAndRetrieveAppointment() {
-		Appointment newAppointment = new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone");
+		Appointment newAppointment = new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		user.addAppointment(newAppointment);
 		assertEquals(newAppointment, user.getAppointmentById(1));
 	}

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.Appointments.exceptions.NotFoundException;
@@ -36,6 +37,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String middleName;
+	@OneToMany(mappedBy="user")
 	private List<Appointment> appointments;
 	private String phone;
 	
@@ -65,5 +67,25 @@ public class User implements Serializable {
 		throw new NotFoundException("Sorry but there is no appointment associated to this user with the id of " + id);
 		
 	}
+
+	public User(String username, String pwd, String firstName, String lastName, String middleName,
+			List<Appointment> appointments, String phone) {
+		super();
+		this.username = username;
+		this.pwd = pwd;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.middleName = middleName;
+		this.appointments = appointments;
+		this.phone = phone;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", middleName=" + middleName + ", appointments=" + appointments + ", phone=" + phone + "]";
+	}
+	
+	
 
 }
