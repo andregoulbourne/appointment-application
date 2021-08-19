@@ -1,9 +1,12 @@
-package com.Appointments.models;
+package com.Appointments.Test.models;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.Appointments.models.Appointment;
+import com.Appointments.models.User;
 
 public class AppointmentModelTest {
 	Appointment appointment;

@@ -1,4 +1,4 @@
-package com.Appointments.repo;
+package com.Appointments.Test.repo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNull;
@@ -16,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.Appointments.models.User;
+import com.Appointments.repo.IUser;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

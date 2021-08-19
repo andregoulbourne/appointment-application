@@ -56,8 +56,5 @@ public class Appointment implements Serializable {
 		this.description = description;
 		this.user = user;
 	}
-	
-	
-
 
 }
