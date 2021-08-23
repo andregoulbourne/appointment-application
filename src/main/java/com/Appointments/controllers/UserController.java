@@ -69,7 +69,7 @@ public class UserController {
 		User user;
 		try {
 			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPwd(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getMiddleName(), userDTO.getAppointments()
-					, userDTO.getPhone());
+					, userDTO.getPhone(), userDTO.isAdmin(), userDTO.isVendor());
 		} catch (NullPointerException e) {
 			user = new User();
 			user.setId(userDTO.getId());

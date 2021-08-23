@@ -30,6 +30,10 @@ public class UserDTO {
 	private List<Appointment> appointments;
 
 	private String phone;
+	
+	private boolean admin;
+	
+	private boolean vendor;
 
 	public UserDTO(String username, String pwd, String firstName, String lastName, String middleName,
 			List<Appointment> appointments, String phone) {

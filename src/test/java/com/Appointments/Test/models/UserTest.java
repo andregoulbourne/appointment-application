@@ -24,7 +24,7 @@ public class UserTest {
 		Appointment newAppointment = new Appointment(5, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		appointments.add(newAppointment);
 		this.user = new User(1, "patient", "password", "firstName", "lastName", "middleName", appointments,
-				"19735678888");
+				"19735678888", false, false);
 	}
 
 	@Test
@@ -73,6 +73,20 @@ public class UserTest {
 		String expectedResult = "187645652";
 		user.setPhone("187645652");
 		assertEquals(expectedResult, user.getPhone());
+	}
+	
+	@Test
+	public void testGetterAndSetters_setAnotherAdmin() {
+		boolean expectedResult = true;
+		user.setAdmin(true);
+		assertEquals(expectedResult, user.isAdmin());
+	}
+	
+	@Test
+	public void testGetterAndSetters_setAnotherVendor() {
+		boolean expectedResult = true;
+		user.setVendor(true);
+		assertEquals(expectedResult, user.isVendor());
 	}
 	
 	@Test

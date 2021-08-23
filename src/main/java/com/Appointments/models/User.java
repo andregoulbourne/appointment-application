@@ -40,6 +40,8 @@ public class User implements Serializable {
 	@OneToMany(mappedBy="user")
 	private List<Appointment> appointments;
 	private String phone;
+	private boolean admin;
+	private boolean vendor;
 	
 	public void addAppointment(Appointment appointment) {
 		List<Appointment> newListAppointments = new ArrayList<>(appointments);
@@ -71,6 +73,7 @@ public class User implements Serializable {
 	public User(String username, String pwd, String firstName, String lastName, String middleName,
 			List<Appointment> appointments, String phone) {
 		super();
+		this.id = 0;
 		this.username = username;
 		this.pwd = pwd;
 		this.firstName = firstName;
@@ -78,6 +81,8 @@ public class User implements Serializable {
 		this.middleName = middleName;
 		this.appointments = appointments;
 		this.phone = phone;
+		this.admin = false;
+		this.vendor = false;
 	}
 
 	@Override

@@ -55,7 +55,7 @@ public class AppointmentControllerTest {
 	@BeforeEach
 	void setup() {
 		this.user = new User(1, "patient2", "password2", "firstName2", "lastName2", "middleName2", new ArrayList<>(),
-				"19735678882");
+				"19735678882", false, false);
 		this.appointment = Optional.of(new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user));
 		this.appointment2 = new Appointment(2, "08-09-2019", false, "My brother freaks out whenever someone takes his phone", user);
 		given(urepo.save(user)).willReturn(user);

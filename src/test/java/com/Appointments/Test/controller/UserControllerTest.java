@@ -48,7 +48,7 @@ public class UserControllerTest {
 	@BeforeEach
 	void setup() {
 		this.user = Optional.of(new User(1, "patient", "password", "firstName", "lastName", "middleName", new ArrayList<>(),
-				"19735678888"));
+				"19735678888", false, false));
 		this.user2 = new User("patient2", "password2", "firstName2", "lastName2", "middleName2", new ArrayList<>(),
 				"19735678882");
 	}
@@ -87,7 +87,7 @@ public class UserControllerTest {
 	@Test
 	void testUpdate() throws Exception {
 		given(repo.save(user2)).willReturn(user2);
-		User user3 =new User(0, "patient", "password", "firstName", "lastName", "middleName", new ArrayList<>(),
+		User user3 =new User("patient", "password", "firstName", "lastName", "middleName", new ArrayList<>(),
 				"19735678888");
 		given(repo.save(user3)).willReturn(user3);
 		given(repo.findById(0)).willReturn(Optional.empty());
