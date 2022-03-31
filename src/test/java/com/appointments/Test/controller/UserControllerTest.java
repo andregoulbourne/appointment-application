@@ -47,7 +47,7 @@ class UserControllerTest {
 	
 	@BeforeEach
 	void setup() {
-		this.user = Optional.of(new User(1, "patient", "password", "firstName", "lastName", "middleName", new ArrayList<>(),
+		this.user = Optional.of(new User(1, "patient", "password", "firstName", "lastName", "middleName","email", new ArrayList<>(),
 				"19735678888", false, false));
 		this.user2 = new User("patient2", "password2", "firstName2", "lastName2", "middleName2", new ArrayList<>(),
 				"19735678882");

@@ -20,7 +20,7 @@ import com.appointments.repo.IUser;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("users")
 public class UserController {
 	
@@ -58,6 +58,18 @@ public class UserController {
         return repo.findById(id).get();
     }
     
+    /**
+     * Retrieves an User based on the given ID
+     * @param username of the User
+     * @return Single User found
+     */
+    @PostMapping("/login")
+    public User getUser(@RequestBody User user) {
+        var userRetrieved = repo.findByEmailId(user.getEmailId());
+        if(userRetrieved.getPwd().equals(user.getPwd())) return userRetrieved;
+        else return new User();
+    }
+    
 	/**
 	 * 
 	 * @param id     of already existing user
@@ -68,7 +80,7 @@ public class UserController {
 	public User putUser(@RequestBody UserDTO userDTO) {
 		User user;
 		try {
-			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPwd(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getMiddleName(), userDTO.getAppointments()
+			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPwd(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getMiddleName(), userDTO.getEmailId(), userDTO.getAppointments()
 					, userDTO.getPhone(), userDTO.isAdmin(), userDTO.isVendor());
 		} catch (NullPointerException e) {
 			user = new User();

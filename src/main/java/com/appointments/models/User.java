@@ -37,6 +37,7 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String middleName;
+	private String emailId;
 	@OneToMany(mappedBy="user")
 	private List<Appointment> appointments;
 	private String phone;

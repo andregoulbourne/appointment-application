@@ -27,6 +27,8 @@ public class UserDTO {
 
 	private String middleName;
 
+	private String emailId;
+	
 	private List<Appointment> appointments;
 
 	private String phone;

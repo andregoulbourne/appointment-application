@@ -23,7 +23,7 @@ class UserTest {
 		List<Appointment> appointments = new ArrayList<>();
 		Appointment newAppointment = new Appointment(5, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		appointments.add(newAppointment);
-		this.user = new User(1, "patient", "password", "firstName", "lastName", "middleName", appointments,
+		this.user = new User(1, "patient", "password", "firstName", "lastName", "middleName","email", appointments,
 				"19735678888", false, false);
 	}
 

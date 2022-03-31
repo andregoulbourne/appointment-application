@@ -8,4 +8,5 @@ import com.appointments.models.User;
 @Repository
 public interface IUser extends JpaRepository<User, Integer>{
 	public <Optional>User findByUsername(String username);
+	public <Optional>User findByEmailId(String emailId);
 }
