@@ -11,65 +11,65 @@ import org.junit.jupiter.api.Test;
 import com.Appointments.DTO.UserDTO;
 import com.Appointments.models.Appointment;
 
-public class UserDTOTest {
+class UserDTOTest {
 	UserDTO userDTO;
 
 	@BeforeEach
-	public void setup() {
+	void setup() {
 		this.userDTO = new UserDTO("kitty","hello","Damian","Marley","Zion",new ArrayList<>(),"5008889999");
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherId() {
+	void testGetterAndSetters_setAnotherId() {
 		int expectedResult = 1;
 		userDTO.setId(1);
 		assertEquals(expectedResult, userDTO.getId());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherUsername() {
+	void testGetterAndSetters_setAnotherUsername() {
 		String expectedResult = "kitty";
 		userDTO.setUsername("kitty");
 		assertEquals(expectedResult, userDTO.getUsername());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherPwd() {
+	void testGetterAndSetters_setAnotherPwd() {
 		String expectedResult = "hello";
 		userDTO.setPwd("hello");
 		assertEquals(expectedResult, userDTO.getPwd());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherFirstName() {
+	void testGetterAndSetters_setAnotherFirstName() {
 		String expectedResult = "Damian";
 		userDTO.setFirstName("Damian");
 		assertEquals(expectedResult, userDTO.getFirstName());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherLastName() {
+	void testGetterAndSetters_setAnotherLastName() {
 		String expectedResult = "Marley";
 		userDTO.setLastName("Marley");
 		assertEquals(expectedResult, userDTO.getLastName());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherMiddleName() {
+	void testGetterAndSetters_setAnotherMiddleName() {
 		String expectedResult = "Zion";
 		userDTO.setMiddleName("Zion");
 		assertEquals(expectedResult, userDTO.getMiddleName());
 	}
 
 	@Test
-	public void  testGetterAndSetters_setAnotherAppointments(){ 
+	void  testGetterAndSetters_setAnotherAppointments(){ 
 	  List<Appointment> expectedResult = new ArrayList<>(); 
 	  userDTO.setAppointments(new ArrayList<>()); 
 	  assertEquals(expectedResult, userDTO.getAppointments());      
 	 }
 
 	@Test
-	public void testGetterAndSetters_setAnotherPhone() {
+	void testGetterAndSetters_setAnotherPhone() {
 		String expectedResult = "5008889999";
 		userDTO.setPhone("5008889999");
 		assertEquals(expectedResult, userDTO.getPhone());

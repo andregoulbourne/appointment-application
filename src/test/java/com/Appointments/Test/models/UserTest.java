@@ -14,12 +14,12 @@ import com.Appointments.exceptions.NotFoundException;
 import com.Appointments.models.Appointment;
 import com.Appointments.models.User;
 
-public class UserTest {
+class UserTest {
 
 	User user;
 
 	@BeforeEach
-	public void setup() {
+	void setup() {
 		List<Appointment> appointments = new ArrayList<>();
 		Appointment newAppointment = new Appointment(5, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		appointments.add(newAppointment);
@@ -28,76 +28,76 @@ public class UserTest {
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherId() {
+	void testGetterAndSetters_setAnotherId() {
 		int expectedResult = 3;
 		user.setId(3);
 		assertEquals(expectedResult, user.getId());
 	}
 
 	@Test
-	public void  testGetterAndSetters_setAnotherUsername(){
+	void  testGetterAndSetters_setAnotherUsername(){
 	  String expectedResult = "ladiesMan123";       
 	user.setUsername("ladiesMan123");
 	 assertEquals(expectedResult, user.getUsername());
 	 }
 
-	public void testGetterAndSetters_setAnotherPwd() {
+	void testGetterAndSetters_setAnotherPwd() {
 		String expectedResult = "IlikeKittens123";
 		user.setPwd("IlikeKittens123");
 		assertEquals(expectedResult, user.getPwd());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherFirstName() {
+	void testGetterAndSetters_setAnotherFirstName() {
 		String expectedResult = "Andre";
 		user.setFirstName("Andre");
 		assertEquals(expectedResult, user.getFirstName());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherLastName() {
+	void testGetterAndSetters_setAnotherLastName() {
 		String expectedResult = "Goulbourne";
 		user.setLastName("Goulbourne");
 		assertEquals(expectedResult, user.getLastName());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherMiddleName() {
+	void testGetterAndSetters_setAnotherMiddleName() {
 		String expectedResult = "Markela";
 		user.setMiddleName("Markela");
 		assertEquals(expectedResult, user.getMiddleName());
 	}
 
 	@Test
-	public void testGetterAndSetters_setAnotherPhone() {
+	void testGetterAndSetters_setAnotherPhone() {
 		String expectedResult = "187645652";
 		user.setPhone("187645652");
 		assertEquals(expectedResult, user.getPhone());
 	}
 	
 	@Test
-	public void testGetterAndSetters_setAnotherAdmin() {
+	void testGetterAndSetters_setAnotherAdmin() {
 		boolean expectedResult = true;
 		user.setAdmin(true);
 		assertEquals(expectedResult, user.isAdmin());
 	}
 	
 	@Test
-	public void testGetterAndSetters_setAnotherVendor() {
+	void testGetterAndSetters_setAnotherVendor() {
 		boolean expectedResult = true;
 		user.setVendor(true);
 		assertEquals(expectedResult, user.isVendor());
 	}
 	
 	@Test
-	public void testAddAppointmentAndRetrieveAppointment() {
+	void testAddAppointmentAndRetrieveAppointment() {
 		Appointment newAppointment = new Appointment(1, "08-09-2019", false, "My sister freaks out whenever someone takes her phone", user);
 		user.addAppointment(newAppointment);
 		assertEquals(newAppointment, user.getAppointmentById(1));
 	}
 	
 	@Test
-	public void testRemoveAppointment_throwsAppointmentNotFoundException() {
+	void testRemoveAppointment_throwsAppointmentNotFoundException() {
 		user.removeAppointmentById(5);
 		Exception exception = assertThrows(NotFoundException.class, () -> {
 			user.getAppointmentById(5);

@@ -7,15 +7,15 @@ import org.junit.jupiter.api.Test;
 
 import com.Appointments.exceptions.NotFoundException;
 
-public class NotFoundExceptionTest {
+class NotFoundExceptionTest {
 		
 /*	@Test(expected=NotFoundException.class)
-	public void testCanThrowNotFoundException(){
+	void testCanThrowNotFoundException(){
 		throw new NotFoundException();
 	}	*/
 	
 	@Test
-	public void testCanThrowNotFoundException() {
+	void testCanThrowNotFoundException() {
 		assertThrows(NotFoundException.class, () -> {
 			throw new NotFoundException();
 		});

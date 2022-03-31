@@ -35,7 +35,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(AppointmentController.class)
-public class AppointmentControllerTest {
+class AppointmentControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
@@ -71,7 +71,7 @@ public class AppointmentControllerTest {
 	}
 
 	@Test
-	public void givenAppointments_whenGetAppointments_thenReturnJsonArray() throws Exception {
+	void givenAppointments_whenGetAppointments_thenReturnJsonArray() throws Exception {
 		List<Appointment> allAppointments = Arrays.asList(appointment2);
 
 		given(repo.findAll()).willReturn(allAppointments);
@@ -82,7 +82,7 @@ public class AppointmentControllerTest {
 	}
 	
 	@Test
-	public void givenAppointment_WhenGetAppointment_ThenReturnJsonAppointment() throws Exception {
+	void givenAppointment_WhenGetAppointment_ThenReturnJsonAppointment() throws Exception {
 		given(repo.findById(1)).willReturn(appointment);
 		
 		 mvc.perform(get("/appointments/1").contentType(MediaType.APPLICATION_JSON))

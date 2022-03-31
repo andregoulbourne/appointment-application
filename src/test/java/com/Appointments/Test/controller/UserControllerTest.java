@@ -33,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(UserController.class)
-public class UserControllerTest {
+class UserControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
@@ -63,7 +63,7 @@ public class UserControllerTest {
 	}
 
 	@Test
-	public void givenUsers_whenGetUsers_thenReturnJsonArray() throws Exception {
+	void givenUsers_whenGetUsers_thenReturnJsonArray() throws Exception {
 		
 		List<User> allUsers = Arrays.asList(user2);
 
@@ -75,7 +75,7 @@ public class UserControllerTest {
 	}
 	
 	@Test
-	public void givenUser_WhenGetUser_ThenReturnJsonUser() throws Exception {
+	void givenUser_WhenGetUser_ThenReturnJsonUser() throws Exception {
 		
 		given(repo.findById(1)).willReturn(user);
 		
