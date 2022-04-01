@@ -20,7 +20,7 @@ import com.appointments.repo.IUser;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("users")
 public class UserController {
 	
@@ -65,7 +65,7 @@ public class UserController {
      */
     @PostMapping("/login")
     public User getUser(@RequestBody User user) {
-        var userRetrieved = repo.findByEmailId(user.getEmailId());
+        User userRetrieved = repo.findByEmailId(user.getEmailId());
         if(userRetrieved.getPwd().equals(user.getPwd())) return userRetrieved;
         else return new User();
     }

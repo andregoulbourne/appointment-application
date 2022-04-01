@@ -12,10 +12,11 @@
 	<groupId>com.appointments</groupId>
 	<artifactId>Appointments-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Appointments-app</name>
 	<description>Backend for appointments-app</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
