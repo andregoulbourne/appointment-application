@@ -10,9 +10,7 @@ pipeline {
 		stage ('Compile Stage') {	
 			
 			steps {
-					sh '''
-						mvn clean install
-					'''
+					mvn clean install
 			}
 			
 		}
@@ -20,7 +18,7 @@ pipeline {
 		stage ('Testing Stage') {	
 			
 			steps {
-					sh 'mvn test'
+					mvn test
 			}
 			
 		}
