@@ -26,8 +26,8 @@ class AppointmentModelTest {
 	@Test
 	void testGetterAndSetters_setAnotherDate(){
 		String expectedResult = "09-09-2019";
-		appointment.setDate("09-09-2019");
-		assertEquals(expectedResult, appointment.getDate());
+		appointment.setScheduled("09-09-2019");
+		assertEquals(expectedResult, appointment.getScheduled());
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ class AppointmentModelTest {
 	@Test
 	void testConstructure_ReturnsNewFields(){
 		assertEquals(1, appointment.getId());
-		assertEquals("08-09-2019", appointment.getDate());
+		assertEquals("08-09-2019", appointment.getScheduled());
 		assertEquals(false, appointment.isPassed());
 		assertEquals("My sister freaks out whenever someone takes her phone", appointment.getDescription());
 	}

@@ -78,7 +78,7 @@ class AppointmentControllerTest {
 
 		mvc.perform(get("/appointments").contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$[0].date", is(appointment2.getDate())));
+			.andExpect(jsonPath("$[0].scheduled", is(appointment2.getScheduled())));
 	}
 	
 	@Test
@@ -87,7 +87,7 @@ class AppointmentControllerTest {
 		
 		 mvc.perform(get("/appointments/1").contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.date", is(appointment.get().getDate())));
+			.andExpect(jsonPath("$.scheduled", is(appointment.get().getScheduled())));
 	}
 	
 	@Test

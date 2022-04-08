@@ -35,7 +35,7 @@ public class Appointment implements Serializable {
 	
 	@NotEmpty
 	@NotNull
-	private String date;
+	private String scheduled;
 	
 	@NotNull
 	private boolean passed;
@@ -51,7 +51,7 @@ public class Appointment implements Serializable {
 	public Appointment(@NotEmpty @NotNull String date, @NotNull boolean passed, @NotEmpty @NotNull String description,
 			User user) {
 		super();
-		this.date = date;
+		this.scheduled = date;
 		this.passed = passed;
 		this.description = description;
 		this.user = user;
