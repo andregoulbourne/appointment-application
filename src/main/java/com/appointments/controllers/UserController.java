@@ -43,8 +43,7 @@ public class UserController {
      */
     @GetMapping
     public List<User> getAll() {
-        List<User> users = repo.findAll();
-        return users;
+        return repo.findAll();
     }
    
     /**
@@ -54,7 +53,9 @@ public class UserController {
      */
     @GetMapping("/{id}")
     public User getUser(@PathVariable(name = "id") int id) {
-        return repo.findById(id).get();
+        Optional<User> user = repo.findById(id);
+        if(user.isPresent()) return user.get();
+        return null;
     }
     
     /**

@@ -3,6 +3,9 @@ package com.appointments.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,6 +34,8 @@ public class AppointmentController {
     @Autowired
     IUser urepo;
     
+    private static Logger logger = LogManager.getLogger(AppointmentController.class);
+    
     /**
      * Creates a new Appointment in the database
      * @param Appointment new Appointment being created
@@ -48,8 +53,7 @@ public class AppointmentController {
      */
     @GetMapping
     public List<Appointment> getAll() {
-        List<Appointment> appointments = repo.findAll();
-        return appointments;
+        return repo.findAll();
     }
    
     /**
@@ -59,7 +63,9 @@ public class AppointmentController {
      */
     @GetMapping("/{id}")
     public Appointment getAppointment(@PathVariable(name = "id") int id) {
-        return repo.findById(id).get();
+    	Optional<Appointment> appointment= repo.findById(id); 
+        if(appointment.isPresent()) return appointment.get();
+        return null;
     }
 
  /**
@@ -74,7 +80,7 @@ public class AppointmentController {
 		try {
 			user = urepo.getById(id);
 		} catch (NullPointerException e) {
-			System.out.println("Sorry that user doesn't exist");
+			logger.info("Sorry that user doesn't exist");
 			return null;
 		}
 		Appointment appointment;
