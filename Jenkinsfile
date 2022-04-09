@@ -23,6 +23,14 @@ pipeline {
 			
 		}
 		
+		stage ('Sonar Analysis Stage') {	
+			
+			steps {
+					bat "mvn sonar:sonar -Dsonar.projectKey=appointments-sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=6a3162bad98e5c027c0e128ec39a7a2ef7aaab87"
+			}
+			
+		}
+		
 	}
 	
 }
