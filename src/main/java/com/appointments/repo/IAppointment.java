@@ -7,5 +7,5 @@ import com.appointments.models.Appointment;
 
 @Repository
 public interface IAppointment extends JpaRepository<Appointment, Integer>{
-	public <Optional>Appointment findByScheduled(String date);
+	public Appointment findByScheduled(String date);
 }

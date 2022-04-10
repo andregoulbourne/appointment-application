@@ -50,7 +50,7 @@ class IAppointmentTest {
 	
 	@Test
 	void testFindByDate() {
-		Appointment a= dao.findById(1).get();
+		Appointment a= dao.findByScheduled("SA");
 		assertNotNull(a);
 	}
 

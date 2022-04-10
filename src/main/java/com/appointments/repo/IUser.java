@@ -7,6 +7,6 @@ import com.appointments.models.User;
 
 @Repository
 public interface IUser extends JpaRepository<User, Integer>{
-	public <Optional>User findByUsername(String username);
-	public <Optional>User findByEmailId(String emailId);
+	public User findByUsername(String username);
+	public User findByEmailId(String emailId);
 }

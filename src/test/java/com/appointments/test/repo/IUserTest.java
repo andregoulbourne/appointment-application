@@ -50,5 +50,12 @@ class IUserTest {
 		User u= dao.findByUsername(username);
 		assertNotNull(u);
 	}
+	
+	@Test
+	void testFindEmailId() {
+		String emailId = "test@test.com";
+		User u= dao.findByEmailId(emailId);
+		assertNotNull(u);
+	}
 
 }
