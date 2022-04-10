@@ -17,11 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appointments.DTO.AppointmentDTO;
+import com.appointments.dto.AppointmentDTO;
 import com.appointments.models.Appointment;
 import com.appointments.models.User;
 import com.appointments.repo.IAppointment;
 import com.appointments.repo.IUser;
+import com.appointments.service.AppointmentService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000/")
@@ -34,6 +35,9 @@ public class AppointmentController {
     @Autowired
     IUser urepo;
     
+    @Autowired
+	AppointmentService service;
+    
     private static Logger logger = LogManager.getLogger(AppointmentController.class);
     
     /**
@@ -42,8 +46,8 @@ public class AppointmentController {
      * @return the representation of the Appointment with its newly generated primary key.
      */
     @PostMapping
-    public Appointment postAppointment(@RequestBody Appointment appointment) {
-        return repo.save(appointment);
+    public Appointment postAppointment(@RequestBody AppointmentDTO appointmentDto) {
+        return repo.save(service.appointmentDtoToAppointment(appointmentDto));
     }
 
 

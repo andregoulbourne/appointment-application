@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appointments.DTO.UserDTO;
+import com.appointments.dto.UserDTO;
 import com.appointments.models.User;
 import com.appointments.repo.IUser;
+import com.appointments.service.UserService;
 
 
 @RestController
@@ -26,14 +27,17 @@ public class UserController {
     @Autowired
     IUser repo;
     
+    @Autowired
+    UserService service;
+    
     /**
      * Creates a new User in the database
      * @param User new User being created
      * @return the representation of the User with its newly generated primary key.
      */
     @PostMapping
-    public User postUser(@RequestBody User user) {
-        return repo.save(user);
+    public User postUser(@RequestBody UserDTO userDto) {
+        return repo.save(service.userDtoToUser(userDto));
     }
 
 
@@ -64,10 +68,10 @@ public class UserController {
      * @return Single User found
      */
     @PostMapping("/login")
-    public User getUser(@RequestBody User user) {
-        User userRetrieved = repo.findByEmailId(user.getEmailId());
-        if(userRetrieved.getPwd().equals(user.getPwd())) return userRetrieved;
-        else return new User();
+    public User getUser(@RequestBody UserDTO userDto) {
+        User userRetrieved = repo.findByEmailId(userDto.getEmailId());
+        if(userRetrieved.getPwd().equals(userDto.getPwd())) return userRetrieved;
+        else return null;
     }
     
 	/**

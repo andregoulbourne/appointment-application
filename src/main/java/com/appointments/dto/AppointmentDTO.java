@@ -1,4 +1,6 @@
-package com.appointments.DTO;
+package com.appointments.dto;
+
+import com.appointments.models.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,10 +21,13 @@ private boolean passed;
 
 private String description;
 
-public AppointmentDTO(String date, boolean passed, String description) {
+private  User user;
+
+public AppointmentDTO(String date, boolean passed, String description, User user) {
 		this.date = date;
 		this.passed = passed;
 		this.description = description;
+		this.user=user;
 	}
 
 }

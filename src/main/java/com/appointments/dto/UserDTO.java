@@ -1,4 +1,4 @@
-package com.appointments.DTO;
+package com.appointments.dto;
 
 import java.util.List;
 
