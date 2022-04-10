@@ -13,16 +13,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 @Component
-@Profile("production")
 @WebFilter("/*")
 public class CorsFilter extends OncePerRequestFilter {
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
-		//response.setHeader("Access-Control-Allow-Origin", "http://localhost:8081");
-		response.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
-		//response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+		response.setHeader("Access-Control-Allow-Headers", "Origin, Content-Type, X-Auth-Token");
 		chain.doFilter(request, response);
 		
 	}
