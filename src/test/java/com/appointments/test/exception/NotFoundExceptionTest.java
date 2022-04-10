@@ -2,7 +2,6 @@ package com.appointments.test.exception;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
 import org.junit.jupiter.api.Test;
 
 import com.appointments.exceptions.NotFoundException;
@@ -18,6 +17,20 @@ class NotFoundExceptionTest {
 	void testCanThrowNotFoundException() {
 		assertThrows(NotFoundException.class, () -> {
 			throw new NotFoundException();
+		});
+		
+		assertThrows(NotFoundException.class, () -> {
+			throw new NotFoundException("NotFoundExceptions");
+		});
+		
+		Throwable e = new Throwable();
+		
+		assertThrows(NotFoundException.class, () -> {
+			throw new NotFoundException(e);
+		});
+		
+		assertThrows(NotFoundException.class, () -> {
+			throw new NotFoundException("NotFoundException",e);
 		});
 	}
 

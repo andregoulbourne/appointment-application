@@ -98,6 +98,7 @@ class UserTest {
 	
 	@Test
 	void testRemoveAppointment_throwsAppointmentNotFoundException() {
+		user.removeAppointmentById(0);
 		user.removeAppointmentById(5);
 		Exception exception = assertThrows(NotFoundException.class, () -> {
 			user.getAppointmentById(5);
@@ -107,6 +108,13 @@ class UserTest {
 	    String actualMessage = exception.getMessage();
 
 	    assertTrue(actualMessage.contains(expectedMessage));
+	}
+	
+	@Test
+	void testToStringMethod() {
+		String expected = 
+				"User [id=1, username=patient, firstName=firstName, lastName=lastName, middleName=middleName, appointments=[com.appointments.models.Appointment@61544ae6], phone=19735678888]";
+		assertEquals(expected.substring(0, 10),user.toString().substring(0, 10));
 	}
 
 }
