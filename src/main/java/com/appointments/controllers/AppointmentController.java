@@ -81,18 +81,13 @@ public class AppointmentController {
 	@PutMapping("/{id}")
 	public Appointment putAppointment (@RequestBody AppointmentDTO appointmentDTO, @PathVariable(name = "id") int id) {
 		User user;
-		try {
-			user = urepo.getById(id);
-		} catch (NullPointerException e) {
-			logger.info("Sorry that user doesn't exist");
-			return null;
-		}
 		Appointment appointment;
 		try {
+			user = urepo.getById(id);
 			appointment = new Appointment(appointmentDTO.getId(), appointmentDTO.getDate(), appointmentDTO.isPassed(), appointmentDTO.getDescription(), user);
 		} catch (NullPointerException e) {
-			appointment = new Appointment();
-			appointment.setId(appointmentDTO.getId());
+			logger.info("Exception occured updating appointment ...");
+			return null;
 		}
 		Optional<Appointment> update = repo.findById(appointment.getId());
 		if (update.isPresent()) {
