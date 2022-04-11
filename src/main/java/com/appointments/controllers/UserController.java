@@ -32,7 +32,7 @@ public class UserController {
     @Autowired
     UserService service;
     
-    private static Logger logger = LogManager.getLogger(AppointmentController.class);
+    private static Logger logger = LogManager.getLogger(UserController.class);
     
     /**
      * Creates a new User in the database
