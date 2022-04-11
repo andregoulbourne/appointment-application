@@ -3,6 +3,8 @@ package com.appointments.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +31,8 @@ public class UserController {
     
     @Autowired
     UserService service;
+    
+    private static Logger logger = LogManager.getLogger(AppointmentController.class);
     
     /**
      * Creates a new User in the database
@@ -86,9 +90,9 @@ public class UserController {
 		try {
 			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPwd(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getMiddleName(), userDTO.getEmailId(), userDTO.getAppointments()
 					, userDTO.getPhone(), userDTO.isAdmin(), userDTO.isVendor());
-		} catch (NullPointerException e) {
-			user = new User();
-			user.setId(userDTO.getId());
+		} catch (Exception e) {
+			logger.error("Exception occurred Updating the user ...");
+			return null;
 		}
 		Optional<User> update = repo.findById(user.getId());
 		if (update.isPresent()) {
@@ -107,7 +111,7 @@ public class UserController {
      */
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable(name = "id") int userId) {
-        repo.deleteById(userId);
-    }
+	    repo.deleteById(userId);
+    }	
 
 }
