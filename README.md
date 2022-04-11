@@ -1,6 +1,6 @@
 # Appointment-application
 Appointment application has a spring boot back end and angular front end.   
-Containerized using docker.
+Containerized using docker and using jenkins pipline with sonar for CI/CD
 
 # Technologies Used
 * Java
@@ -12,6 +12,9 @@ Containerized using docker.
 * Angular
 * CSS
 * Docker
+* Logging
+* SonarQube
+* Jenkins
 
 # Features
 * Login Page
