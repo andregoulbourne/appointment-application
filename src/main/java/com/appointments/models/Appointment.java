@@ -12,17 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
 @Table(name = "appointment")
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
 public class Appointment implements Serializable { 
 /**
 	 * 
@@ -56,5 +47,61 @@ public class Appointment implements Serializable {
 		this.description = description;
 		this.user = user;
 	}
+
+	public Appointment(int id, @NotEmpty @NotNull String scheduled, @NotNull boolean passed,
+			@NotEmpty @NotNull String description, User user) {
+		super();
+		this.id = id;
+		this.scheduled = scheduled;
+		this.passed = passed;
+		this.description = description;
+		this.user = user;
+	}
+
+	public Appointment() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getScheduled() {
+		return scheduled;
+	}
+
+	public void setScheduled(String scheduled) {
+		this.scheduled = scheduled;
+	}
+
+	public boolean isPassed() {
+		return passed;
+	}
+
+	public void setPassed(boolean passed) {
+		this.passed = passed;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 
 }
