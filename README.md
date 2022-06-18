@@ -27,6 +27,7 @@ Containerized using docker and using jenkins pipline with sonar for CI/CD
 * docker run -p8081:8081 <"image tag">   
   
 ### Run Locally
+* create a application.properties file and change the server port 8081
 * cd <"angular sub folder in project">  
 * ng build  
 * Copy everything in angular/dist/registerAndLoginFrontEnd Into the the src/main/webapp folder  
