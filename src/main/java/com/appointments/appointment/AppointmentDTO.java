@@ -1,6 +1,6 @@
-package com.appointments.dto;
+package com.appointments.appointment;
 
-import com.appointments.models.User;
+import com.appointments.user.User;
 
 public class AppointmentDTO {
 

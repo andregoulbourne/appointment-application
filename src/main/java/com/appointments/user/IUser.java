@@ -1,9 +1,9 @@
-package com.appointments.repo;
+package com.appointments.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.appointments.models.User;
+import com.appointments.user.User;
 
 @Repository
 public interface IUser extends JpaRepository<User, Integer>{

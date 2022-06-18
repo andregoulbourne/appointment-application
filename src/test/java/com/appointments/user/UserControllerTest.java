@@ -1,4 +1,4 @@
-package com.appointments.controller;
+package com.appointments.user;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -16,11 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import com.appointments.controllers.UserController;
-import com.appointments.dto.UserDTO;
-import com.appointments.models.User;
-import com.appointments.repo.IUser;
-import com.appointments.service.UserService;
+import com.appointments.user.UserController;
+import com.appointments.user.UserDTO;
+import com.appointments.user.User;
+import com.appointments.user.IUser;
+import com.appointments.user.UserService;
 
 @SpringBootTest
 class UserControllerTest {

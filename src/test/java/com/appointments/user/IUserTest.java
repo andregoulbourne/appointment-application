@@ -1,4 +1,4 @@
-package com.appointments.test.repo;
+package com.appointments.user;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -9,24 +9,23 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.appointments.models.Appointment;
-import com.appointments.repo.IAppointment;
+import com.appointments.user.User;
+import com.appointments.user.IUser;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @Sql({"/SCHEMA.sql","/DATA.sql"})
-class IAppointmentTest {
+class IUserTest {
 	
 	@Autowired
-    IAppointment dao;
+    IUser dao;
 	
 //	private final static List<String> CLEANUP_SCRIPTS = new ArrayList<String>() {
 //		{
 //			CLEANUP_SCRIPTS.add("classpath:DROP.sql");
 //		}
 //	};
-	
-//	@AfterEach
+//	@After
 //	public void destroy() {
 //		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2);
 //		IntStream.range(0,CLEANUP_SCRIPTS.size()).forEach(index -> builder.addScript(CLEANUP_SCRIPTS.get(index)));
@@ -46,9 +45,17 @@ class IAppointmentTest {
 //	}
 	
 	@Test
-	void testFindByDate() {
-		Appointment a= dao.findByScheduled("SA");
-		assertNotNull(a);
+	void testFindByUsername() {
+		String username = "SA";
+		User u= dao.findByUsername(username);
+		assertNotNull(u);
+	}
+	
+	@Test
+	void testFindEmailId() {
+		String emailId = "test@test.com";
+		User u= dao.findByEmailId(emailId);
+		assertNotNull(u);
 	}
 
 }

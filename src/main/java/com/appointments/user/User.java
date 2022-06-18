@@ -1,4 +1,4 @@
-package com.appointments.models;
+package com.appointments.user;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.appointments.exceptions.NotFoundException;
+
+import com.appointments.appointment.Appointment;
 
 @Entity
 @Table(name = "users")

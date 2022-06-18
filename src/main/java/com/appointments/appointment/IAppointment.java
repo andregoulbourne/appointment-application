@@ -1,9 +1,9 @@
-package com.appointments.repo;
+package com.appointments.appointment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.appointments.models.Appointment;
+import com.appointments.appointment.Appointment;
 
 @Repository
 public interface IAppointment extends JpaRepository<Appointment, Integer>{
