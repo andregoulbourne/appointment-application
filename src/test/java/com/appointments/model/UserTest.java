@@ -1,4 +1,4 @@
-package com.appointments.user;
+package com.appointments.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -11,8 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.appointments.exceptions.NotFoundException;
-import com.appointments.appointment.Appointment;
-import com.appointments.user.User;
+import com.appointments.model.Appointment;
 
 class UserTest {
 

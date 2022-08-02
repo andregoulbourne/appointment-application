@@ -1,12 +1,11 @@
-package com.appointments.appointment;
+package com.appointments.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
-import com.appointments.appointment.AppointmentDTO;
-import com.appointments.user.User;
+import com.appointments.model.AppointmentDTO;
 
 class AppointmentDTOTest {
 

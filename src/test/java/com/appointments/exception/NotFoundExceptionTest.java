@@ -1,4 +1,4 @@
-package com.appointments.test.exception;
+package com.appointments.exception;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

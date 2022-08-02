@@ -1,4 +1,4 @@
-package com.appointments.user;
+package com.appointments.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.appointments.user.UserDTO;
-import com.appointments.user.User;
+import com.appointments.model.User;
+import com.appointments.model.UserDTO;
 
 @SpringBootTest
 class UserServiceTest {

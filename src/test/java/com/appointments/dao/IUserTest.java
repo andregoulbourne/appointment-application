@@ -1,4 +1,4 @@
-package com.appointments.user;
+package com.appointments.dao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -9,8 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.appointments.user.User;
-import com.appointments.user.IUser;
+import com.appointments.model.User;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

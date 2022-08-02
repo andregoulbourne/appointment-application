@@ -1,4 +1,4 @@
-package com.appointments.appointment;
+package com.appointments.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appointments.appointment.AppointmentDTO;
-import com.appointments.appointment.Appointment;
-import com.appointments.user.User;
-import com.appointments.appointment.IAppointment;
-import com.appointments.user.IUser;
-import com.appointments.appointment.AppointmentService;
+import com.appointments.dao.IAppointment;
+import com.appointments.dao.IUser;
+import com.appointments.model.Appointment;
+import com.appointments.model.AppointmentDTO;
+import com.appointments.model.User;
+import com.appointments.service.AppointmentService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000/")

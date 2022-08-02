@@ -1,8 +1,6 @@
-package com.appointments.user;
+package com.appointments.model;
 
 import java.util.List;
-
-import com.appointments.appointment.Appointment;
 
 public class UserDTO {
 

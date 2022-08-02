@@ -1,9 +1,9 @@
-package com.appointments.user;
+package com.appointments.service;
 
 import org.springframework.stereotype.Service;
 
-import com.appointments.user.UserDTO;
-import com.appointments.user.User;
+import com.appointments.model.User;
+import com.appointments.model.UserDTO;
 
 @Service
 public class UserService {

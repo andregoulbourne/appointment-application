@@ -1,4 +1,4 @@
-package com.appointments.appointment;
+package com.appointments.model;
 
 import java.io.Serializable;
 
@@ -11,8 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import com.appointments.user.User;
 
 @Entity
 @Table(name = "appointment")

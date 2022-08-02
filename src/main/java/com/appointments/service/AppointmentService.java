@@ -1,9 +1,9 @@
-package com.appointments.appointment;
+package com.appointments.service;
 
 import org.springframework.stereotype.Service;
 
-import com.appointments.appointment.AppointmentDTO;
-import com.appointments.appointment.Appointment;
+import com.appointments.model.Appointment;
+import com.appointments.model.AppointmentDTO;
 
 @Service
 public class AppointmentService {

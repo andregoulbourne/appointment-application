@@ -1,4 +1,4 @@
-package com.appointments.user;
+package com.appointments.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.appointments.user.UserDTO;
-import com.appointments.user.User;
-import com.appointments.user.IUser;
-import com.appointments.user.UserService;
+import com.appointments.dao.IUser;
+import com.appointments.model.User;
+import com.appointments.model.UserDTO;
+import com.appointments.service.UserService;
 
 
 @RestController

@@ -1,4 +1,4 @@
-package com.appointments.appointment;
+package com.appointments.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.appointments.appointment.AppointmentDTO;
-import com.appointments.appointment.Appointment;
-import com.appointments.user.User;
+import com.appointments.model.Appointment;
+import com.appointments.model.AppointmentDTO;
+import com.appointments.model.User;
+import com.appointments.service.AppointmentService;
 
 @SpringBootTest
 class AppointmentServiceTest {

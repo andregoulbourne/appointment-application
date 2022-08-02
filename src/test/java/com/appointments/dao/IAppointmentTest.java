@@ -1,4 +1,4 @@
-package com.appointments.appointment;
+package com.appointments.dao;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -9,8 +9,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.appointments.appointment.Appointment;
-import com.appointments.appointment.IAppointment;
+import com.appointments.dao.IAppointment;
+import com.appointments.model.Appointment;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

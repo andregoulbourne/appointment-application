@@ -1,4 +1,4 @@
-package com.appointments.user;
+package com.appointments.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
-
-import com.appointments.user.UserDTO;
 
 class UserDTOTest {
 	UserDTO userDTO;
