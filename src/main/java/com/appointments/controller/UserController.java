@@ -74,11 +74,15 @@ public class UserController {
     @PostMapping("/login")
     public User getUser(@RequestBody UserDTO userDto) {
         User userRetrieved = repo.findByEmailId(userDto.getEmailId());
-        if(userRetrieved.getPwd().equals(userDto.getPwd())) {
+        if(userRetrieved != null &&
+        		userRetrieved.getPwd().equals(userDto.getPwd())) {
         	logger.info("Login success ...");
-        	return userRetrieved;
+        } else {
+        	logger.info("Login failure ...");
+        	userRetrieved = null;
         }
-        else return null;
+        
+        return userRetrieved;
     }
     
 	/**

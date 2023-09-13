@@ -21,9 +21,13 @@ export class LoginService {
     axios
       .post(`http://localhost:8081/users/login`, user)
       .then((response) => {
-        this.setUser(response.data);
-        console.log("All green");
-        this.router.navigate(['/loginSuccess'])
+        if(response.data != "") {
+          this.setUser(response.data);
+          console.log("All green");
+          this.router.navigate(['/loginSuccess'])
+        } else {
+          alert("Login failed ...");
+        }
       })
       .catch((error) => {
         console.error(error);
