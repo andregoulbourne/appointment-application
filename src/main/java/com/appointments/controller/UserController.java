@@ -3,17 +3,14 @@ package com.appointments.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.appointments.model.Session;
+import com.appointments.service.SessionService;
+import com.appointments.util.EncryptionUtility;
+import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.appointments.dao.IUser;
 import com.appointments.model.User;
@@ -22,17 +19,25 @@ import com.appointments.service.UserService;
 
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("users")
 public class UserController {
-	
+    private static final Logger logger = LogManager.getLogger(UserController.class);
+
     @Autowired
-    IUser repo;
+    public UserController(IUser userRepository, UserService userService, SessionService sessionService, EncryptionUtility encryptionUtility){
+        this.userRepository = userRepository;
+        this.userService = userService;
+        this.encryptionUtility = encryptionUtility;
+        this.sessionService = sessionService;
+    }
+
+    IUser userRepository;
     
-    @Autowired
-    UserService service;
-    
-    private static Logger logger = LogManager.getLogger(UserController.class);
+    UserService userService;
+
+    SessionService sessionService;
+
+    EncryptionUtility encryptionUtility;
     
     /**
      * Creates a new User in the database
@@ -41,80 +46,33 @@ public class UserController {
      */
     @PostMapping
     public User postUser(@RequestBody UserDTO userDto) {
-        return repo.save(service.userDtoToUser(userDto));
-    }
+        User user = userRepository.findByEmailId(userDto.getEmailId());
 
+        if(user != null)
+            throw new IllegalStateException("User already exist");
 
-    /**
-     * Retrieves all User stored in the database
-     * @return List of all User in the database in JSON format
-     */
-    @GetMapping
-    public List<User> getAll() {
-        return repo.findAll();
-    }
-   
-    /**
-     * Retrieves an User based on the given ID
-     * @param id id of the User
-     * @return Single User found
-     */
-    @GetMapping("/{id}")
-    public User getUser(@PathVariable(name = "id") int id) {
-        Optional<User> user = repo.findById(id);
-        if(user.isPresent()) return user.get();
-        return null;
+        return userRepository.save(userService.userDtoToUser(userDto));
     }
     
     /**
-     * Retrieves an User based on the given ID
-     * @param username of the User
+     * Logs in a User based on the given email Id and pwd
+     * @param  User
      * @return Single User found
      */
     @PostMapping("/login")
     public User getUser(@RequestBody UserDTO userDto) {
-        User userRetrieved = repo.findByEmailId(userDto.getEmailId());
-        if(userRetrieved.getPwd().equals(userDto.getPwd())) {
+        User userRetrieved = userRepository.findByEmailId(userDto.getEmailId());
+        if(StringUtils.equals(userRetrieved.getPwd(), userDto.getPwd())) {
         	logger.info("Login success ...");
+            Session session = new Session();
+            String token = encryptionUtility.encrypt(userDto.getEmailId());
+            session.setToken(token);
+            userRetrieved.setPwd(null);
+            session.setUser(userRetrieved);
+            sessionService.addSessionToCache(session);
         	return userRetrieved;
         }
         else return null;
     }
-    
-	/**
-	 * 
-	 * @param id     of already existing user
-	 * @param user with changes to update
-	 * @return the newly changed user
-	 */
-	@PutMapping
-	public User putUser(@RequestBody UserDTO userDTO) {
-		User user;
-		try {
-			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPwd(), userDTO.getFirstName(), userDTO.getLastName(), userDTO.getMiddleName(), userDTO.getEmailId(), userDTO.getAppointments()
-					, userDTO.getPhone(), userDTO.isAdmin(), userDTO.isVendor());
-		} catch (Exception e) {
-			logger.error("Exception occurred Updating the user ...");
-			return null;
-		}
-		Optional<User> update = repo.findById(user.getId());
-		if (update.isPresent()) {
-			User newUser = update.get();
-			repo.saveAndFlush(newUser);
-		} else {
-			user = repo.save(user);
-		}
-		return user;
-	}
-
-
-    /**
-     * Deletes the associated user
-     * @param UserId ID of the about me being deleted
-     */
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable(name = "id") int userId) {
-	    repo.deleteById(userId);
-    }	
 
 }

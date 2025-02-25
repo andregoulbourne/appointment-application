@@ -2,77 +2,76 @@ package com.appointments.model;
 
 public class AppointmentDTO {
 
-private int id;
+	private int id;
 
-private String date;
+	private String date;
 
-private boolean passed;
+	private boolean passed;
 
-private String description;
+	private String description;
 
-private  User user;
+	private  User user;
 
-public int getId() {
-	return id;
-}
-
-
-
-public void setId(int id) {
-	this.id = id;
-}
+	public int getId() {
+		return id;
+	}
 
 
 
-public String getDate() {
-	return date;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
 
 
-public void setDate(String date) {
-	this.date = date;
-}
+	public String getDate() {
+		return date;
+	}
 
 
 
-public boolean isPassed() {
-	return passed;
-}
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 
 
-public void setPassed(boolean passed) {
-	this.passed = passed;
-}
+	public boolean isPassed() {
+		return passed;
+	}
 
 
 
-public String getDescription() {
-	return description;
-}
+	public void setPassed(boolean passed) {
+		this.passed = passed;
+	}
 
 
 
-public void setDescription(String description) {
-	this.description = description;
-}
+	public String getDescription() {
+		return description;
+	}
 
 
 
-public User getUser() {
-	return user;
-}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 
 
-public void setUser(User user) {
-	this.user = user;
-}
+	public User getUser() {
+		return user;
+	}
 
 
 
-public AppointmentDTO(String date, boolean passed, String description, User user) {
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public AppointmentDTO(String date, boolean passed, String description, User user) {
 		this.date = date;
 		this.passed = passed;
 		this.description = description;
@@ -81,20 +80,20 @@ public AppointmentDTO(String date, boolean passed, String description, User user
 
 
 
-public AppointmentDTO(int id, String date, boolean passed, String description, User user) {
-	super();
-	this.id = id;
-	this.date = date;
-	this.passed = passed;
-	this.description = description;
-	this.user = user;
-}
+	public AppointmentDTO(int id, String date, boolean passed, String description, User user) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.passed = passed;
+		this.description = description;
+		this.user = user;
+	}
 
 
 
-public AppointmentDTO() {
-	super();
-}
+	public AppointmentDTO() {
+		super();
+	}
 
 
 
