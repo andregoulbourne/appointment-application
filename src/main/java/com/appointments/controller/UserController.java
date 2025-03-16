@@ -1,6 +1,8 @@
 package com.appointments.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.appointments.model.Session;
@@ -55,12 +57,14 @@ public class UserController {
     }
     
     /**
-     * Logs in a User based on the given email Id and pwd
+     * Login a User based on the given email Id and pwd
      * @param  User
-     * @return Single User found
+     * @return resp map with token and user obj
      */
     @PostMapping("/login")
-    public User getUser(@RequestBody UserDTO userDto) {
+    public Map<String, Object> getUser(@RequestBody UserDTO userDto) {
+        Map<String, Object> respMap = new HashMap<>();
+
         User userRetrieved = userRepository.findByEmailId(userDto.getEmailId());
         if(StringUtils.equals(userRetrieved.getPwd(), userDto.getPwd())) {
         	logger.info("Login success ...");
@@ -70,9 +74,11 @@ public class UserController {
             userRetrieved.setPwd(null);
             session.setUser(userRetrieved);
             sessionService.addSessionToCache(session);
-        	return userRetrieved;
+            respMap.put("user", userRetrieved);
+            respMap.put("token", token);
         }
-        else return null;
+
+        return respMap;
     }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'app-login-success',
   templateUrl: './login-success.component.html',
   styleUrls: ['./login-success.component.css']

@@ -21,7 +21,9 @@ export class LoginService {
     axios
       .post(`http://localhost:8081/users/login`, user)
       .then((response) => {
-        this.setUser(response.data);
+        let resp: any = response.data;
+        document.cookie = 'tokenAppointmentsApp='+resp.token+'; path=/'
+        this.setUser(resp.user);
         console.log("All green");
         this.router.navigate(['/loginSuccess'])
       })
@@ -31,5 +33,5 @@ export class LoginService {
       });
   };
 
-  
+
 }

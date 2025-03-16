@@ -1,6 +1,5 @@
-
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginSuccessComponent } from './login-success/login-success.component';
-
 
 @NgModule({
   declarations: [
@@ -20,9 +18,11 @@ import { LoginSuccessComponent } from './login-success/login-success.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    provideClientHydration(withEventReplay())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

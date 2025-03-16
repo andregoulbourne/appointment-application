@@ -130,6 +130,6 @@ class AppointmentsControllerTest {
     void testdeleteAppointment() {
     	assertDoesNotThrow(() -> controller.deleteAppointment(token, id));
     }
-    
+
 	 */
 }
